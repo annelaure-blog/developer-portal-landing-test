@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Criteo Developer Portal</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <img src="img/logo.svg" alt="Criteo Developer Logo" class="nav-logo"/>
+      <div class="nav-links">
+        <a href="https://status.criteo.com/">Status</a>
+        <a href="https://partners.criteo.com/">Partner Portal</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1>Criteo Developer Portal</h1>
+        <p class="hero-subtext">Build on the world's largest advertising network</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Authentication Sample Section -->
+  <section class="auth-sample">
+    <div class="auth-card">
+      <div class="auth-left">
+        <h2>Authentication</h2>
+        <p>Authenticate with Criteo’s APIs using OAuth2 to obtain an access token.</p>
+        <a href="https://developers.criteo.com/retail-media/reference/apiv1oauth2tokenpost" class="see-reference">
+          See API reference
+        </a>
+      </div>
+
+      <div class="auth-right">
+        <div class="code-sample">
+          <div class="code-toolbar">
+            <select class="language-select" onchange="switchCode(this)">
+              <option value="curl">cURL</option>
+              <option value="python">Python</option>
+              <option value="javascript">JavaScript</option>
+            </select>
+            <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy code">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- CURL -->
+          <pre class="code-block"><code class="language-bash">
+curl --request POST \
+  --url https://api.criteo.com/oauth2/token \
+  --header 'accept: application/json' \
+  --header 'content-type: application/x-www-form-urlencoded' \
+  --data client_id=string \
+  --data client_secret=string
+          </code></pre>
+
+          <!-- Python -->
+          <pre class="code-block hidden"><code class="language-python">
+import requests
+url = "https://api.criteo.com/oauth2/token"
+payload = {
+  "client_id": "string",
+  "client_secret": "string"
+}
+headers = {
+  "accept": "application/json",
+  "content-type": "application/x-www-form-urlencoded"
+}
+response = requests.post(url, data=payload, headers=headers)
+print(response.text)
+          </code></pre>
+
+          <!-- JavaScript -->
+          <pre class="code-block hidden"><code class="language-javascript">
+const settings = {
+  async: true,
+  crossDomain: true,
+  url: 'https://api.criteo.com/oauth2/token',
+  method: 'POST',
+  headers: {
+    accept: 'application/json',
+    'content-type': 'application/x-www-form-urlencoded'
+  },
+  data: {
+    client_id: 'string',
+    client_secret: 'string'
+  }
+};
+
+$.ajax(settings).done(res => {
+  console.log(res);
+});
+          </code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Retail Media Big Card -->
+  <section class="feature-block retail-media">
+    <div class="feature-left">
+      <img src="img/retailers.svg" alt="Retail Media Icon" class="feature-icon"/>
+      <h2>Get started with Retail Media</h2>
+      <p>Learn how to connect with Criteo’s Retail Media APIs to access campaigns, catalogs, and more.</p>
+      <a href="https://developers.criteo.com/retail-media/changelog" class="changelog-left">View Changelog</a>
+    </div>
+
+    <div class="feature-right">
+      <div class="mini-card">
+        <div class="label">GET STARTED</div>
+        <h3><a href="https://developers.criteo.com/retail-media/docs/connect-to-the-api">Get connected to the API</a></h3>
+        <p>Begin integrating with Retail Media by connecting to the API.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">TOOLS</div>
+        <h3><a href="https://developers.criteo.com/retail-media/docs/postman-collection">Postman Collection</a></h3>
+        <p>Quickly explore and test Retail Media endpoints with a ready-to-import collection.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">SDKs</div>
+        <h3><a href="https://developers.criteo.com/retail-media/docs/api-client-libraries">Libraries & SDKs</a></h3>
+        <p>Use official client libraries to integrate Retail Media faster and more reliably.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">REFERENCE</div>
+        <h3><a href="https://developers.criteo.com/retail-media/reference">API Reference</a></h3>
+        <p>Find detailed endpoints, parameters, and schemas for Retail Media.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Performance Marketing Big Card -->
+  <section class="feature-block performance-marketing">
+    <div class="feature-left">
+      <img src="img/metrics.svg" alt="Performance Marketing Icon" class="feature-icon"/>
+      <h2>Get started with Performance Marketing</h2>
+      <p>Integrate with our Performance Marketing APIs to create, manage, and optimize campaigns.</p>
+      <a href="https://developers.criteo.com/marketing-solutions/changelog" class="changelog-left">View Changelog</a>
+    </div>
+
+    <div class="feature-right">
+      <div class="mini-card">
+        <div class="label">GET STARTED</div>
+        <h3><a href="https://developers.criteo.com/marketing-solutions/docs/onboarding-checklist">Onboarding checklist</a></h3>
+        <p>Follow the onboarding checklist to integrate with Performance Marketing.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">TOOLS</div>
+        <h3><a href="https://www.postman.com/realcriteo/criteo/collection/eyq6kyt/ms-api-2025-07">Postman Collection</a></h3>
+        <p>Try the endpoints instantly with a curated Postman collection.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">SDKs</div>
+        <h3><a href="https://developers.criteo.com/marketing-solutions/docs/api-client-libraries">Libraries & SDKs</a></h3>
+        <p>Drop-in libraries for your preferred language to speed up integration.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">REFERENCE</div>
+        <h3><a href="https://developers.criteo.com/marketing-solutions/reference">API Reference</a></h3>
+        <p>Full endpoint documentation for Performance Marketing.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Retailer Integration Section -->
+  <section class="retailer-integration">
+    <div class="integration-inner">
+      <div class="integration-text">
+        <h2>Retailer Integration</h2>
+        <p>Learn how to integrate with Criteo’s Retail Media Ad Delivery System, from catalog setup to ad rendering and tracking.</p>
+        <a href="https://developers.criteo.com/retailer-integration/docs/overview" class="outline-btn">View the documentation</a>
+      </div>
+      <div class="integration-illustration">
+        <img src="img/flow.png" alt="Retailer Integration Illustration"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guides Section -->
+  <section class="guides-section">
+    <div class="guides-inner">
+      <h2 class="guides-title">Explore our guides</h2>
+
+      <div class="guides-grid">
+
+        <!-- Retail Media Column -->
+        <div class="guides-column">
+          <div class="guide-card">
+            <span class="guide-label">RETAIL MEDIA</span>
+            <h4><a href="https://developers.criteo.com/retail-media/docs/audiences">Audiences</a></h4>
+            <p>Understand how to build and manage audiences for targeting and reporting.</p>
+          </div>
+          <div class="guide-card">
+            <span class="guide-label">RETAIL MEDIA</span>
+            <h4><a href="https://developers.criteo.com/retail-media/docs/campaign">Campaigns</a></h4>
+            <p>Discover how to create, manage, and optimize your campaigns.</p>
+          </div>
+          <div class="guide-card">
+            <span class="guide-label">RETAIL MEDIA</span>
+            <h4><a href="https://developers.criteo.com/retail-media/docs/line-items">Line items</a></h4>
+            <p>Set up and configure line items within your campaigns.</p>
+          </div>
+          <div class="guide-card">
+            <span class="guide-label">RETAIL MEDIA</span>
+            <h4><a href="https://developers.criteo.com/retail-media/docs/onsite-sponsored-products">Onsite Sponsored Products</a></h4>
+            <p>Integrate onsite sponsored products into your campaigns.</p>
+          </div>
+          <div class="guide-card">
+            <span class="guide-label">RETAIL MEDIA</span>
+            <h4><a href="https://developers.criteo.com/retail-media/docs/analytics">Demand Side Analytics</a></h4>
+            <p>Access demand-side analytics to measure campaign performance.</p>
+          </div>
+          <div class="guide-card">
+            <span class="guide-label">RETAIL MEDIA</span>
+            <h4><a href="https://developers.criteo.com/retail-media/docs/supply-side-reporting-ssp">Supply Side Analytics</a></h4>
+            <p>Review supply-side reporting for publishers and SSP partners.</p>
+          </div>
+        </div>
+
+        <!-- Performance Marketing Column -->
+        <div class="guides-column">
+          <div class="guide-card">
+            <span class="guide-label">PERFORMANCE MARKETING</span>
+            <h4><a href="https://developers.criteo.com/marketing-solutions/docs/advertisers">Advertisers</a></h4>
+            <p>Manage advertiser entities and their associated campaigns.</p>
+          </div>
+          <div class="guide-card">
+            <span class="guide-label">PERFORMANCE MARKETING</span>
+            <h4><a href="https://developers.criteo.com/marketing-solutions/docs/analytics">Analytics</a></h4>
+            <p>Measure performance with detailed reporting and analytics tools.</p>
+          </div>
+          <div class="guide-card">
+            <span class="guide-label">PERFORMANCE MARKETING</span>
+            <h4><a href="https://developers.criteo.com/marketing-solutions/docs/audiences">Audiences</a></h4>
+            <p>Learn how to define and manage audiences for your campaigns.</p>
+          </div>
+          <div class="guide-card">
+            <span class="guide-label">PERFORMANCE MARKETING</span>
+            <h4><a href="https://developers.criteo.com/marketing-solutions/docs/campaigns">Campaigns</a></h4>
+            <p>Manage the full lifecycle of your campaigns, from creation to optimization.</p>
+          </div>
+          <div class="guide-card">
+            <span class="guide-label">PERFORMANCE MARKETING</span>
+            <h4><a href="https://developers.criteo.com/marketing-solutions/docs/creatives">Creatives</a></h4>
+            <p>Get started with creatives and deliver effective ad experiences.</p>
+          </div>
+          <div class="guide-card">
+            <span class="guide-label">PERFORMANCE MARKETING</span>
+            <h4><a href="https://developers.criteo.com/marketing-solutions/docs/marketplace-performance-outcomes">Marketplace Performance Outcomes</a></h4>
+            <p>Track marketplace performance outcomes for better decision-making.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Documentation</h4>
+        <ul>
+          <li><a href="https://developers.criteo.com/retail-media/docs/versioning-policy">API Versioning Policy</a></li>
+          <li><a href="https://developers.criteo.com/retail-media/docs/criteo-api-terms-and-conditions">API Terms & Conditions</a></li>
+          <li><a href="https://developers.criteo.com/retail-media/docs/api-troubleshooting-guide">Troubleshooting Guidelines</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="https://cmax.criteo.com/help">CMax Help Center</a></li>
+          <li><a href="https://cgrowth.criteo.com/help">CGrowth Help Center</a></li>
+          <li><a href="https://docs.commercegrid.criteo.com/kb/en">CGrid Help Center</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="https://www.criteo.com/">Criteo.com</a></li>
+          <li><a href="https://www.criteo.com/privacy/">Privacy Policy</a></li>
+          <li><a href="https://www.criteo.com/terms-and-conditions/">Terms and conditions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Criteo. All rights reserved.</p>
+    </div>
+  </footer>
+
+<!-- Scripts -->
+<script src="script.js"></script>
+<script>
+function switchCode(select) {
+  const language = select.value;
+  const sample = select.closest('.code-sample');
+  const blocks = sample.querySelectorAll('.code-block');
+
+  blocks.forEach(block => block.classList.add('hidden'));
+
+  if (language === "curl") {
+    sample.querySelector('.language-bash').closest('pre').classList.remove('hidden');
+  }
+  if (language === "python") {
+    sample.querySelector('.language-python').closest('pre').classList.remove('hidden');
+  }
+  if (language === "javascript") {
+    sample.querySelector('.language-javascript').closest('pre').classList.remove('hidden');
+  }
+}
+
+function copyCode(btn) {
+  const sample = btn.closest('.code-sample');
+  const visible = sample.querySelector('pre:not(.hidden) code');
+
+  navigator.clipboard.writeText(visible.innerText).then(() => {
+    btn.classList.add("copied");
+    btn.setAttribute("aria-label", "Copied!");
+
+    const copiedText = document.createElement("span");
+    copiedText.className = "copied-label";
+    copiedText.textContent = "Copied!";
+    btn.after(copiedText);
+
+    setTimeout(() => {
+      btn.classList.remove("copied");
+      btn.setAttribute("aria-label", "Copy code");
+      copiedText.remove();
+    }, 2000);
+  });
+}
+</script>
+</body>
+</html>
+
+
+</body>
+</html>
